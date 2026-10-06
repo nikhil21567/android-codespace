@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  redroid:
+    image: redroid/redroid:14.0.0_64only-latest
+    container_name: android-phone
+    privileged: true
+    ports:
+      - "5555:5555"
+      - "8006:8006"
+    volumes:
+      - /workspaces/.android-data:/data
+    environment:
+      - ANDROID_BOOT_TIMEOUT=120
+    shm_size: 2g
+    restart: unless-stopped
