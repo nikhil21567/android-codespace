@@ -1,0 +1,28 @@
+{
+  "name": "Android Phone - Zero Commands Auto Boot",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [8006],
+  "postCreateCommand": "bash scripts/init.sh",
+  "postStartCommand": "bash scripts/init.sh",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["README.md"],
+      "ports": [
+        {
+          "name": "Android",
+          "label": "📱 Open Android Phone",
+          "port": 8006,
+          "visibility": "public",
+          "protocol": "http"
+        }
+      ]
+    }
+  },
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb",
+    "storage": "32gb"
+  }
+}
